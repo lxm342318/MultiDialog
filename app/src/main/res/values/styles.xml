@@ -8,6 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- 锁定布局在发生以下改变时，不重置状态 -->
+        <item name="android:configChanges">orientation|keyboardHidden|screenSize</item>
+        <item name="android:windowBackground">@color/color_white</item>
+    </style>
+
     <style name="line_1dp_EE">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>

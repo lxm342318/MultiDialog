@@ -5,4 +5,42 @@
         <attr name="maxHeight" format="dimension" />
     </declare-styleable>
 
+    <declare-styleable name="Indicator">
+        <attr name="bar_num" format="integer" />
+        <attr name="bar_duration" format="integer" />
+        <attr name="bar_color" format="color" />
+        <attr name="step_num" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="LineWaveVoiceView">
+        <attr name="voiceLineColor" format="color" />
+        <attr name="voiceLineWidth" format="dimension" />
+        <attr name="voiceTextSize" format="dimension" />
+        <attr name="voiceTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CircularProgressView">
+        <!--背景圆环宽度-->
+        <attr name="backWidth" format="dimension" />
+        <!--进度圆环宽度-->
+        <attr name="progressWidth" format="dimension" />
+        <!--背景圆环颜色-->
+        <attr name="backColor" format="color" />
+        <!--进度圆环颜色-->
+        <attr name="progressColor" format="color" />
+        <!--进度圆环开始颜色-->
+        <attr name="progressStartColor" format="color" />
+        <!--进度圆环结束颜色-->
+        <attr name="progressFirstColor" format="color" />
+        <!--圆环进度-->
+        <attr name="progress" format="float" />
+    </declare-styleable>
+
 </resources>
