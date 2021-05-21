@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="55dp"
+    android:orientation="horizontal"
+    android:background="@drawable/ripple_primary"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center|left"
+        android:maxLines="1"
+        android:textColor="@color/color_black"
+        android:textSize="16sp"
+        tools:ignore="RtlHardcoded"
+        tools:text="每天任务" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_select_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@mipmap/btn_check_n" />
+
+</LinearLayout>

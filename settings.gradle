@@ -1,0 +1,2 @@
+rootProject.name='MultiDialog'
+include ':app'
