@@ -1,8 +1,10 @@
 package com.ym.multidialog.dialog
 
+import android.content.Context
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.*
+import android.widget.LinearLayout
 import androidx.annotation.LayoutRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatDialogFragment
@@ -23,8 +25,10 @@ import java.util.*
 abstract class BaseChooseDialog : AppCompatDialogFragment(){
 
     var data: MutableList<ChooseInfo> = ArrayList()
+        private set //只允许建造
     var checked: MutableList<Int> = ArrayList()//选中position集合
-    private var title: String = NULL_CHARACTER //title
+        private set
+    private var content : View ? = null
     private var multiple = false //是否多选
     private var outCancel = true //是否点击外部取消
     private var dimAmount = 0.5f //灰度深浅
@@ -33,7 +37,7 @@ abstract class BaseChooseDialog : AppCompatDialogFragment(){
     private val ANIM = "anim_style"
     private val LAYOUT = "layout_id"
     @LayoutRes
-    protected var layoutId = 0
+    protected var layoutId = R.layout.dialog_choose
     @StyleRes
     protected var animStyle = R.style.ActionSheetDialogAnimation
 
@@ -61,9 +65,13 @@ abstract class BaseChooseDialog : AppCompatDialogFragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(layoutId, container, false)
-        convertView(ViewHolder.create(view), this)
-        return view
+        val layoutInflater = activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val root  = layoutInflater.inflate(layoutId,null)
+        content?.run {
+            root.findViewById<LinearLayout>(R.id.content_view).addView(this)
+        }
+        convertView(ViewHolder.create(root), this)
+        return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -118,28 +126,15 @@ abstract class BaseChooseDialog : AppCompatDialogFragment(){
         return this
     }
 
-    //fun getData() = data
-
     fun setChecked(checked: MutableList<Int>): BaseChooseDialog {
         this.checked = checked
         return this
     }
 
-    //fun getChecked() = checked
-
-    fun setTitle(title: String): BaseChooseDialog{
-        this.title = title
-        return this
-    }
-
-    fun getTitle() = title
-
     fun setMultiple(multiple: Boolean): BaseChooseDialog {
         this.multiple = multiple
         return this
     }
-
-    fun getMultiple() = multiple
 
     fun setOutCancel(outCancel: Boolean): BaseChooseDialog {
         this.outCancel = outCancel
@@ -156,6 +151,10 @@ abstract class BaseChooseDialog : AppCompatDialogFragment(){
         return this
     }
 
+    fun setContentView(content : View): BaseChooseDialog {
+        this.content = content
+        return this
+    }
 
     fun show(manager: FragmentManager?): BaseChooseDialog{
         val ft = manager?.beginTransaction()

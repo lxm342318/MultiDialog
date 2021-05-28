@@ -36,7 +36,7 @@ class LineWaveVoiceView : View {
     private val MIN_WAVE_H = 1
     //最高波峰，是线宽的4倍
     private val MAX_WAVE_H = 10
-    //默认矩形波纹的高度，总共10个矩形，左右各有10个
+    //默认矩形波纹的高度，左右各有14个
     private val DEFAULT_WAVE_HEIGHT =
         intArrayOf(2, 3, 4, 3, 2, 2, 2, 2, 2, 2, 3, 4, 3, 2)
     private val mWaveList = LinkedList<Int>()
@@ -124,8 +124,8 @@ class LineWaveVoiceView : View {
             rectLeft.top = heightCentre - list[i] * lineWidth / 2
             rectLeft.right = widthCentre - (2 * i * lineWidth + textWidth / 2 + lineWidth)
             rectLeft.bottom = heightCentre + list[i] * lineWidth / 2
-            canvas.drawRoundRect(rectRight, 6f, 6f, paint!!)
-            canvas.drawRoundRect(rectLeft, 6f, 6f, paint!!)
+            canvas.drawRoundRect(rectRight, 8f, 8f, paint!!)
+            canvas.drawRoundRect(rectLeft, 8f, 8f, paint!!)
         }
     }
 

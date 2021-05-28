@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_choose_dialog_bottom"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/dim_btn_text_size"
+        android:textStyle="bold"
+        tools:text="@string/str_task_type" />
+
+    <LinearLayout
+        android:id="@+id/content_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.ym.multidialog.view.MaxHeightRecyclerView
+            android:id="@+id/rv_choose"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:maxHeight="400dp"
+            tools:itemCount="2"
+            tools:listitem="@layout/item_choose" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_btn_gray"
+            android:gravity="center"
+            android:text="@string/str_cancel"
+            android:textColor="#5A5A5A"
+            android:textSize="@dimen/dim_btn_text_size" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_confirm_btn"
+            android:gravity="center"
+            android:text="@string/str_confirm"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/dim_btn_text_size"
+            tools:ignore="RtlHardcoded" />
+    </LinearLayout>
+
+</LinearLayout>

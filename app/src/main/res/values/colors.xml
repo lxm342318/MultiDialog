@@ -5,6 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
     <!-- 点击水波纹颜色 -->
     <color name="color_primary_ripple">#42000000</color>
+    <color name="color_gray_E0">#F0F0F0F0</color>
     <color name="color_black">#000000</color>
     <color name="color_white_EE">#EEEEEE</color>
     <color name="color_white">#FFFFFFFF</color>

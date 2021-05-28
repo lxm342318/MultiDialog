@@ -12,8 +12,11 @@ import androidx.annotation.LayoutRes
 class NiceDialog : BaseNiceDialog() {
 
     private var convertListener: ViewConvertListener<NiceDialog>? = null
-    override fun intLayoutId(): Int {
-        return layoutId
+
+    companion object {
+        fun init(): NiceDialog {
+            return NiceDialog()
+        }
     }
 
     override fun convertView(holder: ViewHolder?, dialog: BaseNiceDialog?) {
@@ -21,6 +24,9 @@ class NiceDialog : BaseNiceDialog() {
         convertListener?.convertView(holder, dialog as NiceDialog)
     }
 
+    override fun intLayoutId(): Int {
+        return layoutId
+    }
 
     fun setLayoutId(@LayoutRes layoutId: Int): NiceDialog {
         this.layoutId = layoutId
@@ -32,10 +38,10 @@ class NiceDialog : BaseNiceDialog() {
         return this
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        if (savedInstanceState != null) {
-            convertListener = savedInstanceState.getParcelable("listener")
+    override fun onCreate(savedState: Bundle?) {
+        super.onCreate(savedState)
+        if (savedState != null) {
+            convertListener = savedState.getParcelable("listener")
         }
     }
 
@@ -54,9 +60,4 @@ class NiceDialog : BaseNiceDialog() {
         convertListener = null
     }
 
-    companion object {
-        fun init(): NiceDialog {
-            return NiceDialog()
-        }
-    }
 }

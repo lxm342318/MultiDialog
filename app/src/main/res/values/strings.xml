@@ -3,4 +3,5 @@
     <string name="str_strike_through">---</string>
     <string name="str_cancel">取消</string>
     <string name="str_confirm">确定</string>
+    <string name="str_task_type">任务类型</string>
 </resources>

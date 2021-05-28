@@ -14,16 +14,15 @@ class ChooseDialog : BaseChooseDialog(){
     private var convertListener: ViewConvertListener<ChooseDialog>? = null
 
     companion object{
+
         fun init():ChooseDialog{
             return ChooseDialog()
         }
     }
 
-
     override fun intLayoutId(): Int {
         return layoutId
     }
-
 
     fun setLayoutId(@LayoutRes layoutId: Int): ChooseDialog{
         this.layoutId = layoutId

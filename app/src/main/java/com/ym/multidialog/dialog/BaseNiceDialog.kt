@@ -1,7 +1,9 @@
 package com.ym.multidialog.dialog
 
+import android.content.Context
 import android.os.Bundle
 import android.view.*
+import android.widget.LinearLayout
 import androidx.annotation.LayoutRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatDialogFragment
@@ -27,17 +29,12 @@ abstract class BaseNiceDialog : AppCompatDialogFragment() {
     private val CANCEL = "out_cancel"
     private val ANIM = "anim_style"
     private val LAYOUT = "layout_id"
-
-    private var margin //左右边距
-            = 0
-    private var width //宽度
-            = 0
-    private var height //高度
-            = 0
+    private var content : View ? = null
+    private var margin = 0 //左右边距
+    private var width = 0 //宽度
+    private var height = 0 //高度
     private var dimAmount = 0.5f //灰度深浅
-
-    private var showBottom //是否底部显示
-            = false
+    private var showBottom = false //是否底部显示
     private var outCancel = true //是否点击外部取消
 
     @StyleRes
@@ -75,9 +72,13 @@ abstract class BaseNiceDialog : AppCompatDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(layoutId, container, false)
-        convertView(ViewHolder.create(view), this)
-        return view
+        val layoutInflater = activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val root  = layoutInflater.inflate(layoutId,null)
+        content?.run {
+            root.findViewById<LinearLayout>(R.id.content_view).addView(this)
+        }
+        convertView(ViewHolder.create(root), this)
+        return root
     }
 
     override fun onStart() {
@@ -175,6 +176,11 @@ abstract class BaseNiceDialog : AppCompatDialogFragment() {
 
     fun setAnimStyle(@StyleRes animStyle: Int): BaseNiceDialog? {
         this.animStyle = animStyle
+        return this
+    }
+
+    fun setContentView(content : View): BaseNiceDialog {
+        this.content = content
         return this
     }
 
