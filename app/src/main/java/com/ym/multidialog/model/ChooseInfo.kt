@@ -3,7 +3,6 @@ package com.ym.multidialog.model
 /**
  * @author : lxm
  * @package_name ：com.jganzhiyun.controlbox.mvp.model
- * @org ：深圳简工智能科技有限公司
  * @date : 2021/3/29 14:04
  * @description ：选择框item
  */
